@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AddPublication from '.././publications/create/AddPublication';
 import SavedPosts from '.././publications/saved/SavedPosts';
 import Chats from '../chats/Chats';
@@ -15,9 +15,9 @@ import FeedUser from '../user/feed/FeedUser';
 const AppRouter = () => {
 
     return (
-        <HashRouter>
+        <BrowserRouter basename='/travelgram'>
             <Routes>
-                <Route path="/" element={<LoginView />} />
+                <Route path="/travelgram" element={<LoginView />} />
                 <Route path="/register" element={<RegisterView />} />
                 <Route path="/home" element={<Home />} />
                 <Route path='/addPublication' element={<AddPublication />} />
@@ -31,7 +31,7 @@ const AppRouter = () => {
                 <Route path="/error" element={<ErrorConnection />} />
                 <Route path="*" element={<ErrorNotFound />} />
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     );
 };
 

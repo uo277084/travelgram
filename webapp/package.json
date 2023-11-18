@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+  "name": "travelgram",
+  "homepage": "https://uo277084.github.io/travelgram",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -40,7 +41,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +70,7 @@
     "@testing-library/react": "^14.1.0",
     "@testing-library/user-event": "^14.5.1",
     "cypress": "^13.5.0",
+    "gh-pages": "^6.0.0",
     "sinon": "^17.0.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
