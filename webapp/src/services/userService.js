@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://travelgrambackend.onrender.com/api/user";
+const baseUrl = "https://travelgramback.onrender.com/api/user";
 
 const login = async (username, password) => {
     try {

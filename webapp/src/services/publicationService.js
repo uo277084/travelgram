@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://travelgrambackend.onrender.com/api/publication";
+const baseUrl = "https://travelgramback.onrender.com/api/publication";
 
 const addPublication = async (country, cities, rating, description, dateTripStart, dateTripFinish, user) => {
     try {

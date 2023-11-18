@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://travelgrambackend.onrender.com/api/chat';
+const baseUrl = 'https://travelgramback.onrender.com/api/chat';
 
 const getChatOrder = async (username) => {
     try {
