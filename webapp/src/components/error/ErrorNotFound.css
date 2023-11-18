@@ -1,0 +1,23 @@
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.error-content {
+    text-align: center;
+}
+
+.error-title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: #dc3545;
+}
+
+.error-message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #495057;
+}
