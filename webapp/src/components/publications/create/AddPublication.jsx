@@ -79,17 +79,7 @@ function AddPublication() {
 
     useEffect(() => {
         if (country != null) {
-            fetch(`http://api.geonames.org/searchJSON?country=${country.code_2}&username=uo277084`, {
-                redirect: 'manual',
-            })
-                .then(response => {
-                    if (response.redirected) {
-                        return fetch(response.url, {
-                            redirect: 'manual',
-                        });
-                    }
-                    return response;
-                })
+            fetch(`https://secure.geonames.org/searchJSON?country=${country.code_2}&username=uo277084`)
                 .then(response => response.json())
                 .then(data => {
                     const citiesAPI = Array.from(new Set(data.geonames
@@ -103,7 +93,6 @@ function AddPublication() {
                 });
         }
     }, [country]);
-
 
     const [citiesOptions, setCitiesOptions] = useState([]);
 
