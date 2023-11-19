@@ -177,7 +177,7 @@ function Register() {
                     alignItems: 'center',
                 }}
             >
-                <Link href="/" variant="body2">
+                <Link href="/travelgram/#/" variant="body2">
                     Volver
                 </Link>
                 <img src={logo} alt="Logo de Travelgram" />

@@ -40,7 +40,7 @@ function App() {
     if ((currentTime - userTime) >= oneHour) {
       window.localStorage.removeItem('userLogged');
       setUserLogged(null);
-      window.location.href = '/';
+      window.location.href = '/travelgram/#/';
     }
     return (currentTime - userTime) >= oneHour;
   }
