@@ -51,9 +51,6 @@ function Chat() {
 
                     setChats(chats2);
 
-                    console.log(username)
-                    console.log(chatSelected)
-                    console.log(username && (!chatSelected || (chatSelected.user1 !== username && chatSelected.user2 !== username)))
                     if (username && (!chatSelected || (chatSelected.user1 !== username && chatSelected.user2 !== username))) {
                         const chatCheck = await chatService.checkChat(user.user.username, username);
                         if (chatCheck.chatExists) {
