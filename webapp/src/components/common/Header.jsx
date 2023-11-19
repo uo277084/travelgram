@@ -52,7 +52,7 @@ function Header() {
             var userInfo = JSON.parse(userLogged);
             setUser(userInfo);
         } else {
-            window.location.href = '/';
+            window.location.href = '/travelgram/#/';
         }
     }, [])
 

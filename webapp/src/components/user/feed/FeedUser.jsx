@@ -126,6 +126,8 @@ function Feed() {
     }
 
     const handleClickUser = (username) => () => {
+        setOpenFollowersDialog(false);
+        setOpenFollowingDialog(false);
         window.location.href = '/travelgram/#/feed/' + username;
     };
 
