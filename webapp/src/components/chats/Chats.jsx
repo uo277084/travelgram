@@ -126,7 +126,7 @@ function Chat() {
 
     const handleClickChat = (username) => () => {
         setOpenDialogResults(false);
-        navigate('/chats/' + username);
+        window.location.href = '/travelgram/#/chats/' + username;
     };
 
     const handleInfoLastMessage = (message) => {
