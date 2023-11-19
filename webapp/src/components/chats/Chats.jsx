@@ -105,6 +105,7 @@ function Chat() {
     }, [user]);
 
     const handleChatUser = (chat) => async () => {
+        console.log(chat);
         setChatSelected(chat);
     }
 
@@ -129,6 +130,7 @@ function Chat() {
 
     const handleClickChat = (username) => () => {
         setOpenDialogResults(false);
+        console.log(username);
         window.location.href = '/travelgram/#/chats/' + username;
     };
 
