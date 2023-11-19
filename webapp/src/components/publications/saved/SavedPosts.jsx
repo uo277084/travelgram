@@ -34,7 +34,7 @@ function SavedPosts() {
                     setIsLoading(false);
                 }
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
 

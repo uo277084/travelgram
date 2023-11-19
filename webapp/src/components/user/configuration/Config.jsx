@@ -54,7 +54,7 @@ function Config() {
                     setLogo(urlLogo);
                 }
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
         fetchData();

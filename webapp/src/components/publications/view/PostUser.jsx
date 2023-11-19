@@ -11,7 +11,7 @@ function PostUser(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const urlLogo = await firebaseUtils.getPhoto('/app/logos/fotoPorDefecto.jpg');
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/fotoPorDefecto2.jpg');
             setDefaultImage(urlLogo);
         }
         fetchData();

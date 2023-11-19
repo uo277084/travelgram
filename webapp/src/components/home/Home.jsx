@@ -30,7 +30,7 @@ function Home() {
                 const urlLogo = await firebaseUtils.getPhoto('/app/logos/mapamundi.png');
                 setMapa(urlLogo);
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
         fetchData();

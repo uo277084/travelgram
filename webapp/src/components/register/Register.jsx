@@ -161,7 +161,7 @@ function Register() {
                 window.location.href = '/travelgram/#/home';
             }
         } catch (error) {
-            navigate('/travelgram/#/error');
+            navigate('/error');
         }
     };
 

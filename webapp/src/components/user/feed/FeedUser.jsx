@@ -78,7 +78,7 @@ function Feed() {
                     }
                 }
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
         fetchData();

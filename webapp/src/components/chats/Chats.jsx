@@ -62,7 +62,7 @@ function Chat() {
                     }
                 }
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
 
@@ -87,7 +87,7 @@ function Chat() {
 
                 setChats(chatsWithProfilePics);
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         };
 
@@ -116,7 +116,7 @@ function Chat() {
             setSearchResult(usersResult);
             setOpenDialogResults(true);
         } catch (error) {
-            navigate('/travelgram/#/error');
+            navigate('/error');
         }
     };
 
@@ -126,7 +126,7 @@ function Chat() {
 
     const handleClickChat = (username) => () => {
         setOpenDialogResults(false);
-        navigate('/travelgram/#/chats/' + username);
+        navigate('/chats/' + username);
     };
 
     const handleInfoLastMessage = (message) => {

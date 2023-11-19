@@ -96,7 +96,7 @@ const PostView = (props) => {
                 setComments(commentsWithAvatarUrls);
                 setLoadingComments(false);
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
 
@@ -198,7 +198,7 @@ const PostView = (props) => {
             const user = await userService.findUserByUsername(username);
             return user.user;
         } catch (error) {
-            navigate('/travelgram/#/error');
+            navigate('/error');
         }
     }
 

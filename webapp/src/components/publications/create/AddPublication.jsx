@@ -191,7 +191,7 @@ function AddPublication() {
                         window.location.href = '/travelgram/#/feed/' + user.username;
                     }
                 } catch (error) {
-                    navigate('/travelgram/#/error');
+                    navigate('/error');
                 }
             }
         } else {

@@ -36,7 +36,7 @@ function FollowedPosts() {
                     setIsLoading(false);
                 }
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
 

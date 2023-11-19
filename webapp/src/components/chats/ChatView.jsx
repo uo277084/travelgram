@@ -40,7 +40,7 @@ function ChatView(props) {
                 const user2 = await userService.findUserByUsername(chat.user2);
                 setUser2(user2.user);
             } catch (error) {
-                navigate('/travelgram/#/error');
+                navigate('/error');
             }
         }
 
@@ -82,7 +82,7 @@ function ChatView(props) {
                 }
             }
         } catch (error) {
-            navigate('/travelgram/#/error');
+            navigate('/error');
         }
     }
 
