@@ -37,7 +37,6 @@ function Config() {
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
-    const [isChecking, setIsChecking] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -238,9 +237,7 @@ function Config() {
 
         try {
 
-            setIsChecking(true);
             let updateUser = await checkFields();
-            setIsChecking(false);
 
             if (updateUser) {
                 let url = "";
@@ -416,15 +413,7 @@ function Config() {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                             <CircularProgress />
                             <Typography variant="body2">
-                                Actualizando los datos. Este proceso podría tardar.
-                            </Typography>
-                        </div>
-                    )}
-                    {isChecking && (
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
-                            <CircularProgress />
-                            <Typography variant="body2">
-                                Se están comprobando los datos...
+                                Actualizando los datos...
                             </Typography>
                         </div>
                     )}

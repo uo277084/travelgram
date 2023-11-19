@@ -29,7 +29,7 @@ function Register() {
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
-    const [isChecking, setIsChecking] = useState(false);
+    const [isUploading, setIsUploading] = useState(false);
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
@@ -151,13 +151,13 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            setIsChecking(true);
             let addUser = await checkFields();
-            setIsChecking(false);
 
             if (addUser) {
+                setIsUploading(true);
                 let userRegister = await userService.addUser(name, email, username, password, birthDate);
                 window.localStorage.setItem('userLogged', JSON.stringify(userRegister));
+                setIsUploading(false);
                 window.location.href = '/travelgram/#/home';
             }
         } catch (error) {
@@ -269,11 +269,11 @@ function Register() {
                             format='DD/MM/YYYY'
                         />
                     </LocalizationProvider>
-                    {isChecking && (
+                    {isUploading && (
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                             <CircularProgress />
                             <Typography variant="body2">
-                                Se están comprobando los datos...
+                                Se está creando la cuenta...
                             </Typography>
                         </div>
                     )}
