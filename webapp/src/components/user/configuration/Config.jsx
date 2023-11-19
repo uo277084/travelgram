@@ -295,7 +295,7 @@ function Config() {
                     alignItems: 'center',
                 }}
             >
-                <Link href={"/feed/" + username} variant="body2">
+                <Link href={"/travelgram/#/feed/" + username} variant="body2">
                     Volver
                 </Link>
                 <img src={logo} alt="Logo de Travelgram" />
