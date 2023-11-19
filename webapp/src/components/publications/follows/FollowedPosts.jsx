@@ -83,7 +83,7 @@ function FollowedPosts() {
             )}
             <Grid item xs={12} style={{ alignSelf: 'flex-end', position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}>
                 <Tooltip title="Añadir publicación" aria-label="add">
-                    <Fab color="primary" aria-label="add" href='/addPublication'>
+                    <Fab color="primary" aria-label="add" href='/travelgram/#/addPublication'>
                         <AddIcon />
                     </Fab>
                 </Tooltip>
