@@ -157,7 +157,7 @@ function Login() {
                         />
                     </FormControl>
                     {isChecking && (
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                             <CircularProgress />
                             <Typography variant="body2">
                                 Se están comprobando las credenciales...

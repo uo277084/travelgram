@@ -30,7 +30,7 @@ function SavedPosts() {
                         const publication = await publicationService.getPublicationById(savedPostsIds[i]);
                         savedPosts.push(publication.publication);
                     }
-                    setPosts(savedPosts);
+                    setPosts(savedPosts.reverse());
                     setIsLoading(false);
                 }
             } catch (error) {
