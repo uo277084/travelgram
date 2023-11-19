@@ -14,7 +14,7 @@ function ConfigView() {
 
     useEffect(() => {
         async function fetchData() {
-            const urlLogo = await firebaseUtils.getPhoto('/app/randomImages/' + Math.floor(Math.random() * numPhotos) + '.png');
+            const urlLogo = await firebaseUtils.getPhoto('/app/randomImages/' + Math.floor(Math.random() * numPhotos) + '.jpg');
             setBackgroundImage(urlLogo);
         }
         fetchData();
