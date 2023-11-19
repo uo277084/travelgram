@@ -84,10 +84,13 @@ function AddPublication() {
             })
                 .then(response => {
                     if (response.redirected) {
-                        return fetch(response.url);
+                        return fetch(response.url, {
+                            redirect: 'manual',
+                        });
                     }
                     return response;
-                }).then(response => response.json())
+                })
+                .then(response => response.json())
                 .then(data => {
                     const citiesAPI = Array.from(new Set(data.geonames
                         .filter(city => city.name !== country.name_en)
@@ -100,6 +103,7 @@ function AddPublication() {
                 });
         }
     }, [country]);
+
 
     const [citiesOptions, setCitiesOptions] = useState([]);
 
