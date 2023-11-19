@@ -31,7 +31,7 @@ function Login() {
         }
 
         async function fetchData() {
-            setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FfotoPorDefecto2.jpg?alt=media&token=0bae9ea3-03fb-419e-9053-84ad17ca118e");
+            setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FlogoVerdeOscuro.png?alt=media&token=ca0b3afe-91d2-4cd6-99c2-6b039439b4c0");
         }
         fetchData();
 
