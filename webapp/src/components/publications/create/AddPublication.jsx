@@ -78,9 +78,10 @@ function AddPublication() {
     }, [])
 
     useEffect(() => {
-        console.log(country)
         if (country != null) {
-            fetch(`http://api.geonames.org/searchJSON?country=${country.code_2}&username=uo277084`)
+            fetch(`http://api.geonames.org/searchJSON?country=${country.code_2}&username=uo277084`, {
+                referrerPolicy: 'unsafe-url'
+            })
                 .then(response => response.json())
                 .then(data => {
                     const citiesAPI = Array.from(new Set(data.geonames
@@ -93,7 +94,6 @@ function AddPublication() {
                     navigate('/error');
                 });
         }
-        console.log(citiesOptions)
     }, [country]);
 
     const [citiesOptions, setCitiesOptions] = useState([]);
