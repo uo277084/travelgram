@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/travelgram/static/css/main.18a13019.css",
-    "main.js": "/travelgram/static/js/main.a43eca27.js",
+    "main.js": "/travelgram/static/js/main.b367ef5f.js",
     "static/js/787.fff96fce.chunk.js": "/travelgram/static/js/787.fff96fce.chunk.js",
     "index.html": "/travelgram/index.html",
     "main.18a13019.css.map": "/travelgram/static/css/main.18a13019.css.map",
-    "main.a43eca27.js.map": "/travelgram/static/js/main.a43eca27.js.map",
+    "main.b367ef5f.js.map": "/travelgram/static/js/main.b367ef5f.js.map",
     "787.fff96fce.chunk.js.map": "/travelgram/static/js/787.fff96fce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.18a13019.css",
-    "static/js/main.a43eca27.js"
+    "static/js/main.b367ef5f.js"
   ]
 }
