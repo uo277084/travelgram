@@ -33,8 +33,7 @@ function Register() {
 
     useEffect(() => {
         async function fetchData() {
-            //const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
-            setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FfotoPorDefecto2.jpg?alt=media&token=0bae9ea3-03fb-419e-9053-84ad17ca118e");
+            setLogo("%PUBLIC_URL%/images/logoVerdeOscuro.png");
         }
         fetchData();
     }, []);
