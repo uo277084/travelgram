@@ -331,7 +331,7 @@ function AddPublication() {
 
                         <Grid item xs={12}>
                             {isUploading && (
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                                     <CircularProgress />
                                     <Typography variant="body2">
                                         Se están subiendo las imágenes. Este proceso podría tardar.

@@ -413,10 +413,10 @@ function Config() {
                         />
                     </LocalizationProvider>
                     {isUploading && (
-                        <div style={{ marginTop: '15px', marginBottom: '15px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                             <CircularProgress />
                             <Typography variant="body2">
-                                Se están actualizando los datos. Este proceso podría tardar.
+                                Actualizando los datos. Este proceso podría tardar.
                             </Typography>
                         </div>
                     )}
