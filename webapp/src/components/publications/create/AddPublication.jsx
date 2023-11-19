@@ -78,6 +78,7 @@ function AddPublication() {
     }, [])
 
     useEffect(() => {
+        console.log(country)
         if (country != null) {
             fetch(`http://api.geonames.org/searchJSON?country=${country.code_2}&username=uo277084`)
                 .then(response => response.json())
@@ -89,9 +90,10 @@ function AddPublication() {
                     setCitiesOptions(citiesAPI);
                 })
                 .catch(error => {
-                    navigate('/travelgram/#/error');
+                    navigate('/error');
                 });
         }
+        console.log(citiesOptions)
     }, [country]);
 
     const [citiesOptions, setCitiesOptions] = useState([]);
