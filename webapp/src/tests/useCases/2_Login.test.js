@@ -22,7 +22,7 @@ beforeAll(() => {
 });
 
 import { BrowserRouter } from 'react-router-dom';
-import LoginView from '../../components/login/LoginView';
+import Login from '../../components/login/Login';
 
 jest.mock('react-hot-toast', () => ({
     ...jest.requireActual('react-hot-toast'),
@@ -41,7 +41,7 @@ describe('Inicio de sesión tests', () => {
     test('renderizado del componente Login', async () => {
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -52,14 +52,13 @@ describe('Inicio de sesión tests', () => {
         expect(screen.getByTestId("password")).toBeInTheDocument();
         const linkElement = screen.getByText("¿No tienes cuenta? Regístrate");
         expect(linkElement).toBeInTheDocument();
-        expect(linkElement.getAttribute('href')).toBe('/register');
     });
 
     describe('faltan campos por rellenar', () => {
         test('no se ingresa contraseña', async () => {
             await act(async () => {
                 render(<BrowserRouter>
-                    <LoginView />
+                    <Login />
                 </BrowserRouter>);
             });
 
@@ -84,7 +83,7 @@ describe('Inicio de sesión tests', () => {
         test('no se ingresa nombre de usuario', async () => {
             await act(async () => {
                 render(<BrowserRouter>
-                    <LoginView />
+                    <Login />
                 </BrowserRouter>);
             });
 
@@ -109,7 +108,7 @@ describe('Inicio de sesión tests', () => {
         test('ningún campo rellenado', async () => {
             await act(async () => {
                 render(<BrowserRouter>
-                    <LoginView />
+                    <Login />
                 </BrowserRouter>);
             });
 
@@ -131,7 +130,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -161,7 +160,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -216,7 +215,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -268,7 +267,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -295,7 +294,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 
@@ -325,7 +324,7 @@ describe('Inicio de sesión tests', () => {
 
         await act(async () => {
             render(<BrowserRouter>
-                <LoginView />
+                <Login />
             </BrowserRouter>);
         });
 

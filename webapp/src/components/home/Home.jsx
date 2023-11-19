@@ -7,7 +7,6 @@ import Fab from '@mui/material/Fab';
 import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import firebaseUtils from '../../firebase/firebaseUtils';
 import countriesData from '../../json/countriesTranslated.json';
 import publicationService from '../../services/publicationService';
 import Header from '../common/Header';
@@ -27,8 +26,7 @@ function Home() {
                 setUser(userInfo);
                 const recommendedPosts = await publicationService.getRecommendPosts(userInfo.user.username);
                 setRecommendedPosts(recommendedPosts.publications);
-                const urlLogo = await firebaseUtils.getPhoto('/app/logos/mapamundi.png');
-                setMapa(urlLogo);
+                setMapa("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2Fmapamundi.png?alt=media&token=ba8e10cb-40cd-47ac-a2a8-28804f75c67f");
             } catch (error) {
                 navigate('/error');
             }

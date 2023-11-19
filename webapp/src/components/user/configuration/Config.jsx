@@ -50,8 +50,7 @@ function Config() {
                     setUsername(userLogged.user.username);
                     setBirthDate(dayjs(dayjs(userLogged.user.birthDate).format('YYYY-MM-DD')))
                     setAvatarPic(userLogged.user.profilePic);
-                    const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
-                    setLogo(urlLogo);
+                    setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FfotoPorDefecto2.jpg?alt=media&token=0bae9ea3-03fb-419e-9053-84ad17ca118e");
                 }
             } catch (error) {
                 navigate('/error');

@@ -24,7 +24,6 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import firebaseUtils from '../../firebase/firebaseUtils';
 import userService from '../../services/userService';
 
 function Header() {
@@ -33,8 +32,7 @@ function Header() {
 
     useEffect(() => {
         async function fetchData() {
-            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuroPeque.png');
-            setLogo(urlLogo);
+            setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FlogoVerdeOscuroPeque.png?alt=media&token=932a61e0-a8c5-46f0-869b-fa644261838d");
         }
         fetchData();
     }, []);

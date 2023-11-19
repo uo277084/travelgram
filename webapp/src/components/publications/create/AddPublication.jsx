@@ -26,8 +26,7 @@ function AddPublication() {
 
     useEffect(() => {
         async function fetchData() {
-            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
-            setLogo(urlLogo);
+            setLogo("https://firebasestorage.googleapis.com/v0/b/travelgram-db3d8.appspot.com/o/app%2Flogos%2FlogoVerdeOscuro.png?alt=media&token=ca0b3afe-91d2-4cd6-99c2-6b039439b4c0");
         }
         fetchData();
     }, []);
@@ -145,6 +144,10 @@ function AddPublication() {
             setErrorRating(true);
             hasErrors = true;
         }
+        if (images.length > 10) {
+            setErrorImages(true);
+            hasErrors = true;
+        }
         return !hasErrors;
     }
 
@@ -174,7 +177,6 @@ function AddPublication() {
         let isAllOk = checkAllFields();
         if (isAllOk) {
             if (images.length > 10) {
-                setErrorImages(true);
                 toast.error('Puedes subir máximo 10 imágenes', {
                     duration: 1500,
                 });
