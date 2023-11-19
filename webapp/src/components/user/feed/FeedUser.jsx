@@ -78,7 +78,7 @@ function Feed() {
                     }
                 }
             } catch (error) {
-                navigate('/error');
+                navigate('/travelgram/#/error');
             }
         }
         fetchData();
@@ -126,7 +126,7 @@ function Feed() {
     }
 
     const handleClickUser = (username) => () => {
-        window.location.href = '/feed/' + username;
+        window.location.href = '/travelgram/#/feed/' + username;
     };
 
     const handleCloseFollowers = () => {

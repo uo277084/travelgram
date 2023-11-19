@@ -96,7 +96,7 @@ const PostView = (props) => {
                 setComments(commentsWithAvatarUrls);
                 setLoadingComments(false);
             } catch (error) {
-                navigate('/error');
+                navigate('/travelgram/#/error');
             }
         }
 
@@ -198,7 +198,7 @@ const PostView = (props) => {
             const user = await userService.findUserByUsername(username);
             return user.user;
         } catch (error) {
-            navigate('/error');
+            navigate('/travelgram/#/error');
         }
     }
 
@@ -224,7 +224,7 @@ const PostView = (props) => {
             }
             window.location.reload();
         } catch (error) {
-            window.location.href = '/error';
+            window.location.href = '/travelgram/#/error';
         }
     }
 
@@ -277,7 +277,7 @@ const PostView = (props) => {
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
                         Publicación de&nbsp;
-                        <Link to={`/feed/${post.user}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <Link to={`/travelgram/#/feed/${post.user}`} style={{ textDecoration: 'none', color: 'black' }}>
                             {post.user}
                         </Link>
                         &nbsp;

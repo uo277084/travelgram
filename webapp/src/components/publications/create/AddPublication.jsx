@@ -89,7 +89,7 @@ function AddPublication() {
                     setCitiesOptions(citiesAPI);
                 })
                 .catch(error => {
-                    navigate('/error');
+                    navigate('/travelgram/#/error');
                 });
         }
     }, [country]);
@@ -159,7 +159,7 @@ function AddPublication() {
             toast.success('Imágenes subidas con éxito', {
                 duration: 1500,
             });
-            window.location.href = '/feed/' + user.username;
+            window.location.href = '/travelgram/#/feed/' + user.username;
         } catch (error) {
             setIsUploading(false);
             toast.error('Hubo un error al subir las imágenes', {
@@ -188,10 +188,10 @@ function AddPublication() {
                         toast.success('Publicación creada con éxito', {
                             duration: 1500,
                         });
-                        window.location.href = '/feed/' + user.username;
+                        window.location.href = '/travelgram/#/feed/' + user.username;
                     }
                 } catch (error) {
-                    navigate('/error');
+                    navigate('/travelgram/#/error');
                 }
             }
         } else {
@@ -215,7 +215,7 @@ function AddPublication() {
                     alignItems: 'center',
                 }}
             >
-                <Link href="/home" variant="body2">
+                <Link href="/travelgram/#/home" variant="body2">
                     Volver
                 </Link>
                 <img src={logo} alt="Logo de Travelgram" />

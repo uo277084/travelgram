@@ -9,7 +9,7 @@ const ErrorConnection = () => {
                 <h1 className="error-title">500 Server Error</h1>
                 <p className="error-message">No se puede establecer conexión con el servidor.</p>
                 <p className="error-message">Inténtelo más tarde.</p>
-                <Link to="/" className="error-link">Volver al inicio de sesión</Link>
+                <Link to="/travelgram/#/" className="error-link">Volver al inicio de sesión</Link>
             </div>
         </div>
     );

@@ -40,7 +40,7 @@ function ChatView(props) {
                 const user2 = await userService.findUserByUsername(chat.user2);
                 setUser2(user2.user);
             } catch (error) {
-                navigate('/error');
+                navigate('/travelgram/#/error');
             }
         }
 
@@ -82,7 +82,7 @@ function ChatView(props) {
                 }
             }
         } catch (error) {
-            navigate('/error');
+            navigate('/travelgram/#/error');
         }
     }
 
@@ -125,7 +125,7 @@ function ChatView(props) {
                             {chat.user2}
                         </Link>
                         :
-                        <Link to={`/feed/${chat.user1}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <Link to={`/travelgram/#/feed/${chat.user1}`} style={{ textDecoration: 'none', color: 'black' }}>
                             {chat.user1}
                         </Link>}
                 </Typography>

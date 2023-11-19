@@ -8,7 +8,7 @@ const ErrorNotFound = () => {
             <div className="error-content">
                 <h1 className="error-title">404 Not Found</h1>
                 <p className="error-message">La página que estás buscando no se encuentra.</p>
-                <Link to="/" className="error-link">Volver al inicio de sesión</Link>
+                <Link to="/travelgram/#/" className="error-link">Volver al inicio de sesión</Link>
             </div>
         </div>
     );

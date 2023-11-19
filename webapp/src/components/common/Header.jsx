@@ -58,15 +58,15 @@ function Header() {
 
     const handleLogout = () => {
         window.localStorage.removeItem('userLogged');
-        window.location.href = '/';
+        window.location.href = '/travelgram/#/';
     };
 
     const handleFeed = () => {
-        window.location.href = '/feed';
+        window.location.href = '/travelgram/#/feed';
     };
 
     const handleConfig = () => {
-        window.location.href = '/config';
+        window.location.href = '/travelgram/#/config';
     };
 
     const handleSearch = async (event) => {
@@ -85,15 +85,15 @@ function Header() {
     };
 
     const handleSaved = () => {
-        window.location.href = '/savedPosts';
+        window.location.href = '/travelgram/#/savedPosts';
     };
 
     const handleFollowed = () => {
-        window.location.href = '/followed';
+        window.location.href = '/travelgram/#/followed';
     };
 
     const handleChats = () => {
-        window.location.href = '/chats';
+        window.location.href = '/travelgram/#/chats';
     };
 
     const pages = ['Chats', 'Seguidos', 'Guardados'];
@@ -120,7 +120,7 @@ function Header() {
     };
 
     const handleClickUser = (username) => () => {
-        window.location.href = '/feed/' + username;
+        window.location.href = '/travelgram/#/feed/' + username;
     };
 
     if (!user) {
@@ -135,7 +135,7 @@ function Header() {
             <Toaster />
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <a href='/home'>
+                    <a href='/travelgram/#/home'>
                         <img src={logo} alt="Logo de Travelgram" width="50" height="50" />
                     </a>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
