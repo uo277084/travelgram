@@ -103,6 +103,8 @@ function Chat() {
 
     const handleChatUser = (chat) => async () => {
         setChatSelected(chat);
+        console.log(chat);
+        console.log(user);
         navigate('/chats/' + (chat.user1 === user.username ? chat.user2 : chat.user1));
     }
 
