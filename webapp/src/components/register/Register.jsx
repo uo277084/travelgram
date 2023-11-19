@@ -1,6 +1,6 @@
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { FormHelperText } from '@mui/material';
+import CircularProgress, { FormHelperText } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -28,6 +28,7 @@ function Register() {
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
+    const [isChecking, setIsChecking] = useState(false);
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
@@ -149,15 +150,17 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            setIsChecking(true);
             let addUser = await checkFields();
+            setIsChecking(false);
 
             if (addUser) {
                 let userRegister = await userService.addUser(name, email, username, password, birthDate);
                 window.localStorage.setItem('userLogged', JSON.stringify(userRegister));
-                window.location.href = '/home';
+                window.location.href = '/travelgram/#/home';
             }
         } catch (error) {
-            navigate('/error');
+            navigate('/travelgram/#/error');
         }
     };
 
@@ -265,6 +268,14 @@ function Register() {
                             format='DD/MM/YYYY'
                         />
                     </LocalizationProvider>
+                    {isChecking && (
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <CircularProgress />
+                            <Typography variant="body2">
+                                Se están comprobando los datos...
+                            </Typography>
+                        </div>
+                    )}
                     <Button
                         type="submit"
                         fullWidth

@@ -28,7 +28,7 @@ function Login() {
     useEffect(() => {
         const userLogged = window.localStorage.getItem('userLogged');
         if (userLogged) {
-            window.location.href = '/home';
+            window.location.href = '/travelgram/#/home';
         }
 
         async function fetchData() {
@@ -96,7 +96,7 @@ function Login() {
         let isAllOk = await checkEmailOrUsername();
         setIsChecking(false);
         if (isAllOk) {
-            window.location.href = '/home';
+            window.location.href = '/travelgram/#/home';
         }
     };
 
@@ -160,7 +160,7 @@ function Login() {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <CircularProgress />
                             <Typography variant="body2">
-                                Se están subiendo las imágenes. Este proceso podría tardar.
+                                Se están comprobando las credenciales...
                             </Typography>
                         </div>
                     )}
@@ -174,7 +174,7 @@ function Login() {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link href="/register" variant="body2">
+                            <Link href="/travelgram/#/register" variant="body2">
                                 ¿No tienes cuenta? Regístrate
                             </Link>
                         </Grid>

@@ -37,6 +37,7 @@ function Config() {
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
+    const [isChecking, setIsChecking] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -54,7 +55,7 @@ function Config() {
                     setLogo(urlLogo);
                 }
             } catch (error) {
-                navigate('/error');
+                navigate('/travelgram/#/error');
             }
         }
         fetchData();
@@ -237,7 +238,9 @@ function Config() {
 
         try {
 
+            setIsChecking(true);
             let updateUser = await checkFields();
+            setIsChecking(false);
 
             if (updateUser) {
                 let url = "";
@@ -264,7 +267,7 @@ function Config() {
                     await chatService.changeUserFromChat(user.username, username);
                 }
                 setIsUploading(false);
-                window.location.href = '/feed/' + username;
+                window.location.href = '/travelgram/#/feed/' + username;
             }
         } catch (error) {
             toast.error('Error al actualizar los datos', {
@@ -414,6 +417,14 @@ function Config() {
                             <CircularProgress />
                             <Typography variant="body2">
                                 Se están actualizando los datos. Este proceso podría tardar.
+                            </Typography>
+                        </div>
+                    )}
+                    {isChecking && (
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <CircularProgress />
+                            <Typography variant="body2">
+                                Se están comprobando los datos...
                             </Typography>
                         </div>
                     )}
