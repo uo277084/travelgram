@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import firebaseUtils from '../../../firebase/firebaseUtils';
 import Config from './Config';
 
 const defaultTheme = createTheme();
@@ -12,7 +13,11 @@ function ConfigView() {
     const [backgroundImage, setBackgroundImage] = useState('');
 
     useEffect(() => {
-        setBackgroundImage("../../../images/randomPhotos/" + Math.floor(Math.random() * numPhotos) + ".jpg");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/randomImages/' + Math.floor(Math.random() * numPhotos) + '.png');
+            setBackgroundImage(urlLogo);
+        }
+        fetchData();
     }, []);
 
     return (

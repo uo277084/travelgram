@@ -24,6 +24,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+import firebaseUtils from '../../firebase/firebaseUtils';
 import userService from '../../services/userService';
 
 function Header() {
@@ -31,7 +32,11 @@ function Header() {
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
-        setLogo("../../../images/logoVerdeOscuroPeque.png");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuroPeque.png');
+            setLogo(urlLogo);
+        }
+        fetchData();
     }, []);
 
     const [user, setUser] = useState(null);

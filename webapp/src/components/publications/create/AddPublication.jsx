@@ -25,7 +25,11 @@ function AddPublication() {
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
-        setLogo("../../../images/logoVerdeOscuro.png");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
+            setLogo(urlLogo);
+        }
+        fetchData();
     }, []);
 
     const navigate = useNavigate();

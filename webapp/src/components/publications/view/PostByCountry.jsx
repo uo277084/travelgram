@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import firebaseUtils from '../../../firebase/firebaseUtils';
 import PostView from './PostView';
 
 const Img = styled('img')({
@@ -27,7 +28,11 @@ function PostByCountry(props) {
         const user = JSON.parse(localStorage.getItem('userLogged'));
         setUserSession(user.user);
 
-        setDefaultImage("../../../../images/fotoPorDefecto.jpg");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/fotoPorDefecto2.jpg');
+            setDefaultImage(urlLogo);
+        }
+        fetchData();
     }, []);
 
     const [userSession, setUserSession] = useState(null);

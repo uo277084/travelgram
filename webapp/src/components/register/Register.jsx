@@ -20,6 +20,7 @@ import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import firebaseUtils from '../../firebase/firebaseUtils.js';
 import userService from '../../services/userService.js';
 
 function Register() {
@@ -30,7 +31,11 @@ function Register() {
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
-        setLogo("../../../images/logoVerdeOscuro.png");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
+            setLogo(urlLogo);
+        }
+        fetchData();
     }, []);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);

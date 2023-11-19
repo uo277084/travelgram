@@ -39,7 +39,6 @@ function Config() {
     const [isUploading, setIsUploading] = useState(false);
 
     useEffect(() => {
-        setLogo("../../../images/logoVerdeOscuro.png");
         async function fetchData() {
             try {
                 const userLogged = JSON.parse(window.localStorage.getItem('userLogged'));
@@ -51,6 +50,8 @@ function Config() {
                     setUsername(userLogged.user.username);
                     setBirthDate(dayjs(dayjs(userLogged.user.birthDate).format('YYYY-MM-DD')))
                     setAvatarPic(userLogged.user.profilePic);
+                    const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
+                    setLogo(urlLogo);
                 }
             } catch (error) {
                 navigate('/error');

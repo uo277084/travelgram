@@ -1,5 +1,6 @@
 import { Button, Dialog, ImageListItem, ImageListItemBar } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import firebaseUtils from '../../../firebase/firebaseUtils';
 import PostView from './PostView';
 
 function PostUser(props) {
@@ -9,7 +10,11 @@ function PostUser(props) {
     const [openDialogPost, setOpenDialogPost] = useState(false);
 
     useEffect(() => {
-        setDefaultImage("../../../../images/fotoPorDefecto.jpg");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/fotoPorDefecto.jpg');
+            setDefaultImage(urlLogo);
+        }
+        fetchData();
     }, []);
 
     const handleGetPhotoPost = () => {

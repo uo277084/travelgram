@@ -7,6 +7,7 @@ import Fab from '@mui/material/Fab';
 import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import firebaseUtils from '../../firebase/firebaseUtils';
 import countriesData from '../../json/countriesTranslated.json';
 import publicationService from '../../services/publicationService';
 import Header from '../common/Header';
@@ -20,13 +21,14 @@ function Home() {
     const [recommendedPosts, setRecommendedPosts] = useState([]);
     const [user, setUser] = useState(null);
     useEffect(() => {
-        setMapa("../../../images/mapamundi.png");
         async function fetchData() {
             try {
                 const userInfo = JSON.parse(localStorage.getItem('userLogged'));
                 setUser(userInfo);
                 const recommendedPosts = await publicationService.getRecommendPosts(userInfo.user.username);
                 setRecommendedPosts(recommendedPosts.publications);
+                const urlLogo = await firebaseUtils.getPhoto('/app/logos/mapamundi.png');
+                setMapa(urlLogo);
             } catch (error) {
                 navigate('/error');
             }

@@ -3,6 +3,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
@@ -16,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import firebaseUtils from '../../firebase/firebaseUtils.js';
 import userService from '../../services/userService.js';
 import './Login.css';
 
@@ -28,10 +30,17 @@ function Login() {
         if (userLogged) {
             window.location.href = '/home';
         }
-        setLogo("../../../images/logoVerdeOscuro.png");
+
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/logos/logoVerdeOscuro.png');
+            setLogo(urlLogo);
+        }
+        fetchData();
+
     }, [])
 
     const [showPassword, setShowPassword] = useState(false);
+    const [isChecking, setIsChecking] = useState(false);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -83,7 +92,9 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        setIsChecking(true);
         let isAllOk = await checkEmailOrUsername();
+        setIsChecking(false);
         if (isAllOk) {
             window.location.href = '/home';
         }
@@ -145,7 +156,14 @@ function Login() {
                             }
                         />
                     </FormControl>
-
+                    {isChecking && (
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <CircularProgress />
+                            <Typography variant="body2">
+                                Se están subiendo las imágenes. Este proceso podría tardar.
+                            </Typography>
+                        </div>
+                    )}
                     <Button
                         type="submit"
                         fullWidth

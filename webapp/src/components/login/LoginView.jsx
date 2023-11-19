@@ -13,7 +13,11 @@ function LoginView() {
     const [backgroundImage, setBackgroundImage] = useState('');
 
     useEffect(() => {
-        setBackgroundImage("../../../images/randomPhotos/" + Math.floor(Math.random() * numPhotos) + ".jpg");
+        async function fetchData() {
+            const urlLogo = await firebaseUtils.getPhoto('/app/randomImages/' + Math.floor(Math.random() * numPhotos) + '.png');
+            setBackgroundImage(urlLogo);
+        }
+        fetchData();
     }, []);
 
     return (
