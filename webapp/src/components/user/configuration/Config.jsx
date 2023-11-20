@@ -261,6 +261,15 @@ function Config() {
                 } else {
                     await userService.updateUser(user.username, username, name, email, birthDate, url);
                 }
+
+                const userLogged = JSON.parse(window.localStorage.getItem('userLogged'));
+                userLogged.user.username = username;
+                userLogged.user.name = name;
+                userLogged.user.email = email;
+                userLogged.user.birthDate = birthDate;
+                userLogged.user.profilePic = url;
+                window.localStorage.setItem('userLogged', JSON.stringify(userLogged));
+
                 setIsUploading(false);
                 window.location.href = '/travelgram/#/feed/' + username;
             }
