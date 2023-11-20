@@ -483,7 +483,7 @@ exports.checkFollow = async (req, res) => {
 };
 
 exports.changeUserFromFollowers = async (req, res) => {
-    const { user, newUser } = req.body;
+    const { user, newUser } = req.params;
 
     try {
         const userQuery = await usersCollection.where('username', '==', user).get();

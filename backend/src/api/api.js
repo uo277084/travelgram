@@ -5,6 +5,7 @@ const publicationController = require('../controllers/PublicationController.js')
 const chatController = require('../controllers/ChatController.js');
 
 router.post('/user/add', userController.addUser);
+router.put('/user/updateFollower/:user/:newUser', userController.changeUserFromFollowers);
 router.put('/user/update/:username', userController.updateUser);
 router.put('/user/updatePass/:username', userController.updateUserWithPassword);
 router.get('/user/:username', userController.findUserByUsername);
@@ -23,7 +24,6 @@ router.delete('/user/unfollow/:username/:followed', userController.unfollowUser)
 router.get('/user/followers/:username', userController.getFollowers);
 router.get('/user/follows/:username', userController.getFollows);
 router.get('/user/checkFollow/:username/:followed', userController.checkFollow);
-router.put('/user/updateFollower', userController.changeUserFromFollowers);
 router.delete('/user/deletePost/:publicationId', userController.deletePublicationOfSavedPosts);
 
 router.post('/publication/add', publicationController.addPublication);

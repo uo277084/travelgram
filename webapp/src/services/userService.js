@@ -194,7 +194,7 @@ const checkFollow = async (username, followed) => {
 
 const changeUserFromFollower = async (user, newUser) => {
     try {
-        const response = await axios.put(`${baseUrl}/updateFollower`, { user, newUser });
+        const response = await axios.put(`${baseUrl}/updateFollower/${user}/${newUser}`,);
         return response.data;
     } catch (error) {
         console.error('Error al actualizar el usuario de la publicación:', error);
