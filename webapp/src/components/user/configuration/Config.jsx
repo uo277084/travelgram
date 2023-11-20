@@ -251,16 +251,16 @@ function Config() {
                     url = user.profilePic;
                 }
 
+                if (user.username !== username) {
+                    await chatService.changeUserFromChat(user.username, username);
+                    await userService.changeUserFromFollower(user.username, username);
+                    await publicationService.changeUser(user.username, username);
+                }
+
                 if (hasChangedPassword) {
                     await userService.updateUserWithPassword(user.username, username, name, email, birthDate, url, newPassword);
                 } else {
                     await userService.updateUser(user.username, username, name, email, birthDate, url);
-                }
-
-                if (user.username !== username) {
-                    await publicationService.changeUser(user.username, username);
-                    await userService.changeUserFromFollower(user.username, username);
-                    await chatService.changeUserFromChat(user.username, username);
                 }
                 setIsUploading(false);
                 window.location.href = '/travelgram/#/feed/' + username;
