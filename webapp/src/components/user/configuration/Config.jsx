@@ -253,7 +253,6 @@ function Config() {
 
                 if (user.username !== username) {
                     await chatService.changeUserFromChat(user.username, username);
-                    await userService.changeUserFromFollower(user.username, username);
                     await publicationService.changeUser(user.username, username);
                 }
 

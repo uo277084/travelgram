@@ -121,6 +121,22 @@ exports.updateUser = async (req, res) => {
             return res.status(404).json({ success: false, mensaje: 'Usuario no encontrado' });
         }
 
+        const newUserQuery = await usersCollection.where('username', '==', username2).get();
+
+        if (!newUserQuery.empty) {
+            return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
+        }
+
+        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', user).get();
+
+        querySnapshotUsers.forEach(async (doc) => {
+            const followers = doc.data().followers;
+            const index = followers.indexOf(user);
+            followers[index] = username2;
+            await usersCollection.doc(doc.id).update({ followers });
+        }
+        );
+
         const userDoc = userQuery.docs[0].ref;
 
         await userDoc.update({
@@ -150,6 +166,22 @@ exports.updateUserWithPassword = async (req, res) => {
         if (userQuery.empty) {
             return res.status(404).json({ success: false, mensaje: 'Usuario no encontrado' });
         }
+
+        const newUserQuery = await usersCollection.where('username', '==', username2).get();
+
+        if (!newUserQuery.empty) {
+            return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
+        }
+
+        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', user).get();
+
+        querySnapshotUsers.forEach(async (doc) => {
+            const followers = doc.data().followers;
+            const index = followers.indexOf(user);
+            followers[index] = username2;
+            await usersCollection.doc(doc.id).update({ followers });
+        }
+        );
 
         const userDoc = userQuery.docs[0].ref;
 
