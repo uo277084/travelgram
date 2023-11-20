@@ -277,7 +277,7 @@ const PostView = (props) => {
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
                         Publicación de&nbsp;
-                        <Link to={`/travelgram/#/feed/${post.user}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <Link to={`/feed/${post.user}`} style={{ textDecoration: 'none', color: 'black' }}>
                             {post.user}
                         </Link>
                         &nbsp;
