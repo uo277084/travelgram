@@ -146,7 +146,6 @@ function AddPublication() {
         }
         if (images.length > 10) {
             setErrorImages(true);
-            hasErrors = true;
         }
         return !hasErrors;
     }
