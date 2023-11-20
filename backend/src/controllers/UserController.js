@@ -131,7 +131,7 @@ exports.updateUser = async (req, res) => {
 
         querySnapshotUsers.forEach(async (doc) => {
             const followers = doc.data().followers;
-            const index = followers.indexOf(user);
+            const index = followers.indexOf(username);
             followers[index] = username2;
             await usersCollection.doc(doc.id).update({ followers });
         }
@@ -177,7 +177,7 @@ exports.updateUserWithPassword = async (req, res) => {
 
         querySnapshotUsers.forEach(async (doc) => {
             const followers = doc.data().followers;
-            const index = followers.indexOf(user);
+            const index = followers.indexOf(username);
             followers[index] = username2;
             await usersCollection.doc(doc.id).update({ followers });
         }
