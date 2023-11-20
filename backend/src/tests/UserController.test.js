@@ -944,7 +944,7 @@ describe('checkFollow tests', () => {
 
 describe('changeUserFromFollowers tests', () => {
     test('no existe el usuario', async () => {
-        const req = { body: { user: 'testUser123456', newUser: 'testUser28181811' } };
+        const req = { params: { user: 'testUser123456', newUser: 'testUser28181811' } };
         const res = {
             json: jest.fn(),
             status: jest.fn().mockReturnThis(),
@@ -956,7 +956,7 @@ describe('changeUserFromFollowers tests', () => {
     });
 
     test('el nuevo nombre ya está en uso', async () => {
-        const req = { body: { user: 'testUser1', newUser: 'testUser2' } };
+        const req = { params: { user: 'testUser1', newUser: 'testUser2' } };
         const res = {
             json: jest.fn(),
             status: jest.fn().mockReturnThis(),
@@ -968,7 +968,7 @@ describe('changeUserFromFollowers tests', () => {
     });
 
     test('existe el usuario y se actualiza correctamente', async () => {
-        const req = { body: { user: 'testUser902', newUser: 'testUser903' } };
+        const req = { params: { user: 'testUser902', newUser: 'testUser903' } };
         const res = {
             json: jest.fn(),
             status: jest.fn(),
