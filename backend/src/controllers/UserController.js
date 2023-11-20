@@ -127,7 +127,7 @@ exports.updateUser = async (req, res) => {
             return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
         }
 
-        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', user).get();
+        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', username).get();
 
         querySnapshotUsers.forEach(async (doc) => {
             const followers = doc.data().followers;
@@ -173,7 +173,7 @@ exports.updateUserWithPassword = async (req, res) => {
             return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
         }
 
-        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', user).get();
+        const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', username).get();
 
         querySnapshotUsers.forEach(async (doc) => {
             const followers = doc.data().followers;
