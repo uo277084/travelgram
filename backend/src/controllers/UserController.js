@@ -121,12 +121,6 @@ exports.updateUser = async (req, res) => {
             return res.status(404).json({ success: false, mensaje: 'Usuario no encontrado' });
         }
 
-        const newUserQuery = await usersCollection.where('username', '==', username2).get();
-
-        if (!newUserQuery.empty) {
-            return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
-        }
-
         const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', username).get();
 
         querySnapshotUsers.forEach(async (doc) => {
@@ -165,12 +159,6 @@ exports.updateUserWithPassword = async (req, res) => {
 
         if (userQuery.empty) {
             return res.status(404).json({ success: false, mensaje: 'Usuario no encontrado' });
-        }
-
-        const newUserQuery = await usersCollection.where('username', '==', username2).get();
-
-        if (!newUserQuery.empty) {
-            return res.status(409).json({ mensaje: 'El nuevo nombre está en uso' });
         }
 
         const querySnapshotUsers = await usersCollection.where('followers', 'array-contains', username).get();
