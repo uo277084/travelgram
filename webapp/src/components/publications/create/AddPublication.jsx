@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
@@ -18,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import firebaseUtils from '../../../firebase/firebaseUtils';
 import countriesData from '../../../json/countriesTranslated.json';
 import publicationService from '../../../services/publicationService.js';
+import Header from '../../common/Header.jsx';
 import CarouselPhotos from './CarouselPhotos';
 
 function AddPublication() {
@@ -206,6 +206,7 @@ function AddPublication() {
 
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
             <Toaster />
+            <Header />
             <Box
                 sx={{
                     my: 8,
@@ -216,9 +217,6 @@ function AddPublication() {
                     alignItems: 'center',
                 }}
             >
-                <Link href="/travelgram/#/home" variant="body2">
-                    Volver
-                </Link>
                 <img src={logo} alt="Logo de Travelgram" />
                 <Typography component="h1" variant="h2">
                     Añade una nueva publicación
